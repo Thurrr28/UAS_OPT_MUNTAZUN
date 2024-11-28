@@ -1,0 +1,191 @@
+<html>
+<head>
+    <title>Diagnosis Hama dan Penyakit Tanaman</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        .main-content {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .main-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-group button:hover {
+            background: #45a089;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e9f7f6;
+            border: 1px solid #50b3a2;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Sistem Pakar</span> Hama dan Penyakit Tanaman</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="hama.html">Hama</a></li>
+                    <li><a href="penyakit.html">Penyakit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <h2>Diagnosis Hama dan Penyakit Tanaman</h2>
+        <form id="diagnosisForm">
+            <div class="form-group">
+                <label for="gejala">Pilih Gejala:</label>
+                <select id="gejala" name="gejala">
+                    <option value="daun_berlubang">Daun Berlubang</option>
+                    <option value="akar_membusuk">Akar Membusuk</option>
+                    <option value="batang_berlubang">Batang Berlubang</option>
+                    <option value="buah_bercak">Buah Bercak</option>
+                    <option value="bunga_mengering">Bunga Mengering</option>
+                    <option value="daun_menguning">Daun Menguning</option>
+                    <option value="akar_kering">Akar Kering</option>
+                    <option value="batang_mengering">Batang Mengering</option>
+                    <option value="buah_busuk">Buah Busuk</option>
+                    <option value="bunga_tidak_berkembang">Bunga Tidak Berkembang</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="diagnose()">Diagnosa</button>
+            </div>
+        </form>
+        <div id="result" class="result" style="display: none;">
+            <h3>Hasil Diagnosis:</h3>
+            <p id="diagnosisResult"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sistem Pakar Hama dan Penyakit Tanaman &copy; 2024</p>
+    </footer>
+
+    <script>
+        function diagnose() {
+            const gejala = document.getElementById('gejala').value;
+            let result = '';
+
+            switch (gejala) {
+                case 'daun_berlubang':
+                    result = 'Kemungkinan Hama: Ulat Api, Kumbang Daun, Belalang';
+                    break;
+                case 'akar_membusuk':
+                    result = 'Kemungkinan Penyakit: Busuk Pangkal Batang (BPB), Busuk Tandan, Layu Fusarium';
+                    break;
+                case 'batang_berlubang':
+                    result = 'Kemungkinan Hama: Kumbang Tanduk, Kumbang Bubuk';
+                    break;
+                case 'buah_bercak':
+                    result = 'Kemungkinan Penyakit: Antraknosa, Karat Merah';
+                    break;
+                case 'bunga_mengering':
+                    result = 'Kemungkinan Penyakit: Busuk Tandan, Karat Merah, Penyakit Mati Pucuk';
+                    break;
+                case 'daun_menguning':
+                    result = 'Kemungkinan Penyakit: Busuk Pangkal Batang (BPB), Layu Fusarium, Busuk Akar';
+                    break;
+                case 'akar_kering':
+                    result = 'Kemungkinan Penyakit: Layu Fusarium, Penyakit Mati Pucuk';
+                    break;
+                case 'batang_mengering':
+                    result = 'Kemungkinan Penyakit: Layu Fusarium, Penyakit Mati Pucuk';
+                    break;
+                case 'buah_busuk':
+                    result = 'Kemungkinan Penyakit: Busuk Tandan, Antraknosa';
+                    break;
+                case 'bunga_tidak_berkembang':
+                    result = 'Kemungkinan Penyakit: Busuk Pangkal Batang (BPB), Layu Fusarium, Penyakit Mati Pucuk';
+                    break;
+                default:
+                    result = 'Gejala tidak dikenali';
+            }
+
+            document.getElementById('diagnosisResult').innerText = result;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
